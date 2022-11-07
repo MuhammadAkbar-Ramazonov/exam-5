@@ -1,0 +1,43 @@
+.modal-img-list{
+  background-color: #d3d3d4;
+  border-color: #bcbebf;
+}
+.modal-img {
+  background-image: url("photographer.jpg"); 
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+}
+.modal-item {
+  position: relative;
+  text-align: center;
+  width: 222px;
+  height: 200px;
+  background-color: #e2e3e5;
+  border-color: #d3d6d8;
+  
+}
+
+.cheked-item > .modal-item:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  width: 75px;
+  height: 76px;
+  background-color: transparent;
+  background-image: url(./images/checkmark.gif);
+  background-size: cover;
+}
+
+.hero {
+  padding-top: 272px;
+  padding-bottom: 532px;
+  background-image: url("./images/back-to-future.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
