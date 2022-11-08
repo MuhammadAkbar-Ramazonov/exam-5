@@ -1,4 +1,4 @@
-const roadSymbols = [
+const roadSymbol = [
   {
     id: 0,
     symbol_title: "Yo'l bering",

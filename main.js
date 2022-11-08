@@ -1,86 +1,187 @@
-// varebals
-const elSelect = document.querySelector(".site-select");
-const elBtn = document.querySelector(".movies-btn");
+// TIME AND LEVEL 
+const elForm = document.querySelector(".site-form-js");
+const elFormTime = document.querySelector(".form-time-js");
+const elFormLevel = document.querySelector(".form-level-js");
+const setTimeOut = document.querySelector(".time-set");
+const elEttamps = document.querySelector(".atammps-js");
+const elScore = document.querySelector(".score-js");
 
-// MODAL
-const elModal = document.querySelector(".modal");
-const modalTitle = elModal.querySelector(".modal-title");
-const modalImgList = elModal.querySelector(".modal-img-list");
-const modalQuestion = elModal.querySelector(".modal-question"); 
+// CLICK BTN 
 
-// ramdom variables
-const randonNum = Math.floor(Math.random() * 80);
+const elBtn = document.querySelector(".form-btn-js");
+const elBtnReset = document.querySelector(".reset-btn");
+const elBtnWelcome = document.querySelector(".btn-welcome");
 
-const easyRules = roadSymbols.slice(randonNum, randonNum + 12);
-const mediumRules = roadSymbols.slice(randonNum, randonNum + 16);
-const hardRules = roadSymbols.slice(randonNum, randonNum + 20);
+// MODAL 
+const elModal = document.querySelector(".modal-inner-wrap");
+const elModalGameOver = document.querySelector(".modal-game-over");
+const elModalGameOverText = document.querySelector(".youwin-img");
+const elList =  document.querySelector(".list");
+const elTextTitle =  document.querySelector(".main-title-js");
+const secondVariant = document.querySelector(".second-variant");
+const elTextPoints =  document.querySelector(".text-points");
+const elScoreText = document.querySelector(".text-score");
+const elModalWelcome = document.querySelector(".modal-begin");
+const fragmentItem =  document.createDocumentFragment();
+const template = document.querySelector(".temp").content;
 
-const easyQuestionNum = Math.floor(Math.random() * 12);
-const mediumQuestionNum = Math.floor(Math.random() * 16);
-const hardQuestionNum = Math.floor(Math.random() * 20);
+const titleArray = [];
 
-function renderModal(arr){
-  modalImgList.innerHTML = ""
-  const elModalTemplate = document.querySelector(".modal-temp").content;
-  const modalFragment = document.createDocumentFragment();
-  const renderArr = arr.forEach((item, index) => {
-    const elCloneModal = elModalTemplate.cloneNode(true);
-    
-    elCloneModal.querySelector(".modal-item").classList.add("mb-2" , "rounded-3")
-    elCloneModal.querySelector(".modal-img").dataset.id = item.id;
-    elCloneModal.querySelector(".modal-item").classList.add("modal-item");
-    elCloneModal.querySelector(".modal-img").src = item.symbol_img;
-    elCloneModal.querySelector(".modal-img").classList.add("modal-img")      
-    
-    
-    modalFragment.appendChild(elCloneModal)
-  });
-  modalImgList.appendChild(modalFragment);
-  return renderArr;
+// TIME 
+let timeCler;
+
+function timeFunc(time){
+    let timeCler = setInterval(() => {
+        let minut = Math.floor(time /60);
+        let secund = time % 60 ;
+        
+        if(minut < 10){
+            minut = "0" + minut;
+        } else{
+            minut = minut;
+        }
+        if(secund < 10){
+            secund = "0" + secund;
+        } else{
+            secund =  secund;
+        }
+        setTimeOut.textContent = `${minut} : ${secund}`
+        
+        if(time == 0){
+            clearInterval(timeCler)
+            elModalGameOver.classList.add("modal-game-over-show");
+            elTextTitle.style.opacity = "0";
+            elTextTitle.style.pointerEvents = "none";
+            elModal.classList.add("d-none");
+            elList.innerHTML = "";
+            elTextPoints.textContent = `Score : ${randomPoints}`;
+            elScoreText.textContent = `Attempts :  ${randomChange}`
+        }
+        time--
+    }, 1000);
 }
 
-function findItem(arr) {
-  
-  modalImgList.addEventListener("click", function(evt){
-    if(evt.target.matches(".modal-img")){
-      
-      const findBtnId = Number(evt.target.dataset.id);
-      console.log(findBtnId);
-      console.log(roadSymbols[findBtnId].symbol_title)
-      if (roadSymbols[findBtnId].symbol_title == modalQuestion.textContent) {
-        arr.forEach(item => {
-          if (item.id == findBtnId) {
-            
-            
-            // modalImgList.classList.add("cheked-item");
-          }
-        })
-        // arr[findBtnId].classList.add("modal-item-chek");
-      }
-    }
-  });
+
+function randomFunc() {
+    let random = Math.floor(Math.random() * titleArray.length);
+    elTextTitle.textContent = titleArray[random];
 }
 
+function titleFunc(item) {
+    item.forEach(element => {
+        titleArray.push(element.symbol_title)
+    });
+}
 
-elBtn.addEventListener("click", function(){
-  if (elSelect.value == "easy") {
-    renderModal(easyRules);
+for (let i = 0; i < roadSymbol.length; i++) {
+    let random1 = Math.floor(Math.random() * roadSymbol.length)
+    let random2 = Math.floor(Math.random() * roadSymbol.length)
     
-    modalQuestion.textContent = easyRules[easyQuestionNum].symbol_title;
-    findItem(easyRules);
-  }
-  if (elSelect.value == "medium") {
-    renderModal(mediumRules);
-    modalQuestion.textContent = mediumRules[mediumQuestionNum].symbol_title;
-    findItem(mediumRules);
+    const icon = roadSymbol[random1] 
+    roadSymbol[random1] = roadSymbol[random2]
+    roadSymbol[random2] = icon
+}
+
+// BTN CLICK 
+elBtn.addEventListener("click", ()=>{
+    clearInterval(timeCler);
+    timeFunc(elFormTime.value);
+    elModal.classList.add("modal-wrap-inner-show");
     
-  }
-  if (elSelect.value == "hard") {
-    renderModal(hardRules);
-    modalQuestion.textContent = hardRules[hardQuestionNum].symbol_title;
-    findItem(hardRules)
+    mainFunc(roadSymbol.slice(0, elFormLevel.value));
+    titleFunc(roadSymbol.slice(0, elFormLevel.value));
     
-  }
+    randomFunc();
+    elForm.style.display = "none";
+    elBtn.style.display = "none";
 })
 
+// MAIN FUNCTION 
+function mainFunc(item) {
+    elList.innerHTML = "";
+    item.forEach(arrays => {
+        let temClon = template.cloneNode(true);
+        temClon.querySelector(".item").dataset.id = arrays.symbol_title;
+        temClon.querySelector(".item").style.backgroundImage = `url(${arrays.symbol_img})`;
+        temClon.querySelector(".item").style.backgroundRepeat = "no-repeat";
+        temClon.querySelector(".item").style.backgroundPosition = "center";
+        temClon.querySelector(".item").style.backgroundSize = "contain";
+        fragmentItem.appendChild(temClon)
+    });
+    elList.appendChild(fragmentItem);
+}
 
+elBtnReset.addEventListener("click" , ()=>{
+    window.location.reload();
+})
+
+elBtnWelcome.addEventListener("click", ()=>{
+    elModalWelcome.classList.add("modal-welcome-show");
+})
+let randomChange = 5;
+let randomPoints = 0;
+
+elList.addEventListener("click", (evt) =>{
+    if(evt.target.matches(".item")){
+        let signsId = evt.target.dataset.id;
+        let signFind = roadSymbol.find((itm) => itm.symbol_title == signsId);
+        let signIndex = titleArray.indexOf(signFind.symbol_title);
+        
+        if(signFind.symbol_title == elTextTitle.textContent){
+            evt.target.style.pointerEvents = "none";
+            evt.target.style.backgroundColor = "green";
+            let audio = new Audio("./audios/audios.mp3");
+            audio.play()
+            
+            setTimeout(() => {
+                evt.target.style.opacity = "0";
+            }, 1500);
+            randomPoints+=2
+            elScore.textContent = `Score : ${randomPoints}`
+            titleArray.splice(signIndex, 1);
+            randomFunc()
+            
+            evt.target.querySelector(".img-checked").style.display = "block";
+            evt.target.querySelector(".img-error").style.display = "none";
+            
+        }else{
+            randomChange--
+            elEttamps.textContent = `Attempts :  ${randomChange}`;
+            randomPoints--
+            elScore.textContent = `Score : ${randomPoints}`;
+            
+            let audio = new Audio("./audios/erors.mp3");
+            audio.play()
+            
+            evt.target.style.backgroundColor = "red";
+            setTimeout(() => {
+                evt.target.style.backgroundColor = "";
+            }, 1000);
+
+            evt.target.classList.add("item-show-anim");
+            setTimeout(() => {
+                evt.target.classList.remove("item-show-anim");
+            }, 1000);
+            
+            evt.target.querySelector(".img-checked").style.display = "none";
+            evt.target.querySelector(".img-error").style.display = "block";
+            setTimeout(() => {
+                evt.target.querySelector(".img-error").style.display = "none";
+            }, 1000);
+        }
+        if(titleArray.length == 0){
+            elModalGameOverText.src = `./images/win.png`;
+            elModalGameOver.classList.add("modal-game-over-show");
+            elModal.classList.add("d-none");
+            elTextPoints.textContent = `Score : ${randomPoints}`;
+            elScoreText.textContent = `Attempts :  ${randomChange}`
+        }
+        if(randomChange == 0){
+            elModalGameOver.classList.add("modal-game-over-show");
+            elModal.classList.add("d-none");
+            elTextPoints.textContent = `Score : ${randomPoints}`;
+            elScoreText.textContent = `Attempts :  ${randomChange}`
+            
+        }
+    }
+})
