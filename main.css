@@ -2,7 +2,7 @@ body{
   width: 100%;
   background-color: #000;
   background-image: url("./images/back-to-future.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .site-form-style{
