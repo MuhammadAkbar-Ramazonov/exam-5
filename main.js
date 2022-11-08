@@ -157,9 +157,9 @@ elList.addEventListener("click", (evt) =>{
             }, 5000);
 
             evt.target.classList.add("item-show-anim");
-            // setTimeout(() => {
-            //     evt.target.classList.remove("item-show-anim");
-            // }, 1000);
+            setTimeout(() => {
+                evt.target.classList.remove("item-show-anim");
+            }, 1000);
             
             evt.target.querySelector(".img-checked").style.display = "none";
             evt.target.querySelector(".img-error").style.display = "block";
