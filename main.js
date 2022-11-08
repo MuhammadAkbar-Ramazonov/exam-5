@@ -1,4 +1,4 @@
-// TIME AND LEVEL 
+// varebles
 const elForm = document.querySelector(".site-form-js");
 const elFormTime = document.querySelector(".form-time-js");
 const elFormLevel = document.querySelector(".form-level-js");
@@ -6,13 +6,13 @@ const setTimeOut = document.querySelector(".time-set");
 const elEttamps = document.querySelector(".atammps-js");
 const elScore = document.querySelector(".score-js");
 
-// CLICK BTN 
+// click btn
 
 const elBtn = document.querySelector(".form-btn-js");
 const elBtnReset = document.querySelector(".reset-btn");
 const elBtnWelcome = document.querySelector(".btn-welcome");
 
-// MODAL 
+// modal 
 const elModal = document.querySelector(".modal-inner-wrap");
 const elModalGameOver = document.querySelector(".modal-game-over");
 const elModalGameOverText = document.querySelector(".youwin-img");
@@ -27,7 +27,6 @@ const template = document.querySelector(".temp").content;
 
 const titleArray = [];
 
-// TIME 
 let timeCler;
 
 function timeFunc(time){
@@ -82,7 +81,7 @@ for (let i = 0; i < roadSymbol.length; i++) {
     roadSymbol[random2] = icon
 }
 
-// BTN CLICK 
+// click
 elBtn.addEventListener("click", ()=>{
     clearInterval(timeCler);
     timeFunc(elFormTime.value);
@@ -96,17 +95,16 @@ elBtn.addEventListener("click", ()=>{
     elBtn.style.display = "none";
 })
 
-// MAIN FUNCTION 
 function mainFunc(item) {
     elList.innerHTML = "";
     item.forEach(arrays => {
-        let temClon = template.cloneNode(true);
-        temClon.querySelector(".item").dataset.id = arrays.symbol_title;
-        temClon.querySelector(".item").style.backgroundImage = `url(${arrays.symbol_img})`;
-        temClon.querySelector(".item").style.backgroundRepeat = "no-repeat";
-        temClon.querySelector(".item").style.backgroundPosition = "center";
-        temClon.querySelector(".item").style.backgroundSize = "contain";
-        fragmentItem.appendChild(temClon)
+        let temCloneModal = template.cloneNode(true);
+        temCloneModal.querySelector(".item").dataset.id = arrays.symbol_title;
+        temCloneModal.querySelector(".item").style.backgroundImage = `url(${arrays.symbol_img})`;
+        temCloneModal.querySelector(".item").style.backgroundRepeat = "no-repeat";
+        temCloneModal.querySelector(".item").style.backgroundPosition = "center";
+        temCloneModal.querySelector(".item").style.backgroundSize = "contain";
+        fragmentItem.appendChild(temCloneModal)
     });
     elList.appendChild(fragmentItem);
 }
@@ -134,7 +132,7 @@ elList.addEventListener("click", (evt) =>{
             audio.play()
             
             setTimeout(() => {
-                evt.target.style.opacity = "0";
+                evt.target.style.opacity = "0.5";
             }, 1500);
             randomPoints+=2
             elScore.textContent = `Score : ${randomPoints}`
@@ -156,12 +154,12 @@ elList.addEventListener("click", (evt) =>{
             evt.target.style.backgroundColor = "red";
             setTimeout(() => {
                 evt.target.style.backgroundColor = "";
-            }, 1000);
+            }, 5000);
 
             evt.target.classList.add("item-show-anim");
-            setTimeout(() => {
-                evt.target.classList.remove("item-show-anim");
-            }, 1000);
+            // setTimeout(() => {
+            //     evt.target.classList.remove("item-show-anim");
+            // }, 1000);
             
             evt.target.querySelector(".img-checked").style.display = "none";
             evt.target.querySelector(".img-error").style.display = "block";
