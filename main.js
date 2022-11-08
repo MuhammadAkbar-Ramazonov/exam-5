@@ -1,5 +1,7 @@
 // varebles
 const elForm = document.querySelector(".site-form-js");
+const elFormWrapper = document.querySelector(".select-wrapper");
+
 const elFormTime = document.querySelector(".form-time-js");
 const elFormLevel = document.querySelector(".form-level-js");
 const setTimeOut = document.querySelector(".time-set");
@@ -91,7 +93,7 @@ elBtn.addEventListener("click", ()=>{
     titleFunc(roadSymbol.slice(0, elFormLevel.value));
     
     randomFunc();
-    elForm.style.display = "none";
+    elFormWrapper.style.display = "none";
     elBtn.style.display = "none";
 })
 
