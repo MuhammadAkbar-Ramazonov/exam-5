@@ -5,13 +5,47 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
 }
+.hero{
+  width: 100%;
+  height: 100%;
+  padding-top: 49px;
+  background-image: url(./images/back-to-future.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .site-form-style{
   padding-top: 36%;
   padding-bottom: 25%;
 }
+
 .form-time-js{
   width: 100%;
   max-width: 300px;
+}
+@media only screen and (max-width: 1400px) {
+  .site-form-style{
+    padding-top: 40%;
+    padding-bottom: 25%;
+  }
+}
+@media only screen and (max-width: 1201px) {
+  .site-form-style{
+    padding-top: 44%;
+    padding-bottom: 33%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .site-form-style{
+    padding-top: 41%;
+    padding-bottom: 63%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .site-form-style{
+    padding-top: 72%;
+    padding-bottom: 69%;
+  }
 }
 .form-level-js{
   width: 100%;

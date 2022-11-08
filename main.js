@@ -53,8 +53,8 @@ function timeFunc(time){
             elTextTitle.style.pointerEvents = "none";
             elModal.classList.add("d-none");
             elList.innerHTML = "";
-            elTextPoints.textContent = `Score : ${randomPoints}`;
-            elScoreText.textContent = `Attempts :  ${randomChange}`
+            elTextPoints.textContent = `Score : ${elRandomPoints}`;
+            elScoreText.textContent = `Attempts :  ${elrandomChange}`
         }
         time--
     }, 1000);
@@ -116,8 +116,8 @@ elBtnReset.addEventListener("click" , ()=>{
 elBtnWelcome.addEventListener("click", ()=>{
     elModalWelcome.classList.add("modal-welcome-show");
 })
-let randomChange = 5;
-let randomPoints = 0;
+let elrandomChange = 5;
+let elRandomPoints = 0;
 
 elList.addEventListener("click", (evt) =>{
     if(evt.target.matches(".item")){
@@ -134,8 +134,8 @@ elList.addEventListener("click", (evt) =>{
             setTimeout(() => {
                 evt.target.style.opacity = "0.5";
             }, 1500);
-            randomPoints+=2
-            elScore.textContent = `Score : ${randomPoints}`
+            elRandomPoints+=2
+            elScore.textContent = `Score : ${elRandomPoints}`
             titleArray.splice(signIndex, 1);
             randomFunc()
             
@@ -143,10 +143,10 @@ elList.addEventListener("click", (evt) =>{
             evt.target.querySelector(".img-error").style.display = "none";
             
         }else{
-            randomChange--
-            elEttamps.textContent = `Attempts :  ${randomChange}`;
-            randomPoints--
-            elScore.textContent = `Score : ${randomPoints}`;
+            elrandomChange--
+            elEttamps.textContent = `Attempts :  ${elrandomChange}`;
+            elRandomPoints--
+            elScore.textContent = `Score : ${elRandomPoints}`;
             
             let audio = new Audio("./audios/erors.mp3");
             audio.play()
@@ -171,14 +171,14 @@ elList.addEventListener("click", (evt) =>{
             elModalGameOverText.src = `./images/win.png`;
             elModalGameOver.classList.add("modal-game-over-show");
             elModal.classList.add("d-none");
-            elTextPoints.textContent = `Score : ${randomPoints}`;
-            elScoreText.textContent = `Attempts :  ${randomChange}`
+            elTextPoints.textContent = `Score : ${elRandomPoints}`;
+            elScoreText.textContent = `Attempts :  ${elrandomChange}`
         }
-        if(randomChange == 0){
+        if(elrandomChange == 0){
             elModalGameOver.classList.add("modal-game-over-show");
             elModal.classList.add("d-none");
-            elTextPoints.textContent = `Score : ${randomPoints}`;
-            elScoreText.textContent = `Attempts :  ${randomChange}`
+            elTextPoints.textContent = `Score : ${elRandomPoints}`;
+            elScoreText.textContent = `Attempts :  ${elrandomChange}`
             
         }
     }
