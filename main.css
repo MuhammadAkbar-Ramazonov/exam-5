@@ -4,7 +4,7 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 49px;
+  padding-top: 50px;
   background-image: url(./images/back-to-future.jpg);
   background-repeat: no-repeat;
   background-position: top;
@@ -15,7 +15,7 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 49px;
+  padding-top: 50px;
   background-image: url("./images/back-to-future.jpg");
   background-position: center;
   background-size: cover;
@@ -34,28 +34,26 @@ body{
   max-width: 300px;
 }
 .btn-welcome{
-  text-align: center;
-  max-width: 211px;
   width: 100%;
+  max-width: 211px;
+  text-align: center;
 }
 .form-btn-js{
+  width: 100%;
   max-width: 100px;
-  width: 100%;
-}
-.item-blok{
-  font-family: 'Times New Roman', Times, serif;
-  width: 100%;
-  text-align: center;
-  max-width: 220px;
-  border: 1px solid #fff;
-  box-shadow: 14px 6px 35px 20px rgba(0,0,0,0.1);
-}
-.select-item{
-  box-shadow: 14px 6px 35px 20px rgba(0,0,0,0.1);
 }
 .item-show-anim{
   animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  
+}
+.item-blok{
+  width: 100%;
+  max-width: 220px;
+  text-align: center; 
+  border: 2px solid #fff;
+  box-shadow: 14px 10px 35px 20px rgba(0,0,0,0.1);
+}
+.select-item{
+  box-shadow: 14px 10px 35px 20px rgba(0,0,0,0.1);
 }
 
 @keyframes shake-horizontal {
@@ -81,16 +79,6 @@ body{
     transform: translateX(-8px);
   }
 }
-.item{
-  width: 100%;
-  max-width: 200px;
-  height: 170px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  box-shadow: 14px 6px 35px 20px rgb(0 0 0 / 10%);
-  border-radius: 10px;
-}
 
 .question-text-wrap{
   padding: 10px 0;
@@ -106,7 +94,16 @@ body{
   background-image: url("./images/back-to-future.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  
+}
+.item{
+  width: 100%;
+  max-width: 200px;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  box-shadow: 14px 6px 35px 20px rgb(0 0 0 / 10%);
+  border-radius: 10px;
 }
 .youwin-img{
   width: 100%;
@@ -120,7 +117,7 @@ body{
   transform: translate(-50% , -50%);
   width: 70%;
   height: 70vh;
-  background-image: url("./images/Game\ Over.png");
+  background-image: url("./images/GameOver.png");
   background-size: cover;
   background-repeat: no-repeat;
 }

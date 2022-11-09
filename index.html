@@ -9,71 +9,80 @@
   <title>Exam - 5</title>
 </head>
 <body>
+  <!-- site hero start -->
   <section class="hero">
     <div class="modal-begin d-flex flex-column justify-content-evenly align-items-center text-center">
       <h1 class="text-white">Welcome</h1>
       <button class="btn-welcome bg-primary border-0 p-2 text-white px-3 rounded-3" type="button">Start</button>
     </div>
     <div class="container px-3">
-     <div class="select-wrapper site-form-js">
-      <form class="site-form-js site-form-style d-flex flex-column align-items-center justify-content-center" action="#" method="POST">
-        <select class="d-block bg-white border-0 border-bottom border-primary text-primary rounded-3 form-time-js mb-3 p-2" name="time" id="time">
-          <option value="180">03 : 00</option>
-          <option value="300">05 : 00</option>
-          <option value="480">08 : 00</option>
-        </select>
-        <select class="d-block bg-white  border-0 border-bottom border-primary text-primary rounded-3 form-level-js mb-3 p-2" name="level" id="level">
-          <option value="24">Easy</option>
-          <option value="30">Medium</option>
-          <option value="42">Hard</option>
-        </select>
-        <button class="form-btn-js bg-primary border-0 p-2 px-3 text-white rounded-3" type="button">Gazz</button>
-      </form>
-    </div>
-    
-    <div class="position-absolute w-100 start-0 top-0 modal-inner-wrap bg-white">
-      <div class="container px-3 bg-secondary">
-        <ul class="row list-unstyled justify-content-between align-items-center pt-3 mt-3">
-          <li class="select-item text-white border-white item-blok rounded-3 p-2 mb-3 mx-auto mx-md-0 col-12 col-md-3">
-            <p class="time-set mb-0">00 : 00</p>
-          </li>
-          <li class="select-item text-white border-white item-blok rounded-3 p-2 mb-3  mx-auto mx-md-0 col-12 col-md-3">
-            <p class="atammps-js mb-0">Attempts : 5</p>
-          </li>
-          <li class="select-item text-white border-white item-blok rounded-3 p-2 mb-3 mx-auto mx-md-0 col-12 col-md-3">
-            <p class="score-js mb-0">Score : 0</p>
-          </li>
-        </ul>
-        <div class="question-text-wrap mb-3">
-          <h2 class="main-title-js text-center text-white"></h2>
-        </div>
-        <ul class="list px-3 row list-unstyled justify-content-between mb-5">
-          
-        </ul>
+      <div class="select-wrapper site-form-js">
+        <form class="site-form-js site-form-style d-flex flex-column align-items-center justify-content-center" action="#" method="POST">
+          <select class="d-block bg-white border-0 border-bottom border-primary text-primary rounded-3 form-time-js mb-3 p-2" name="time" id="time">
+            <option value="180">03 : 00</option>
+            <option value="300">05 : 00</option>
+            <option value="480">08 : 00</option>
+          </select>
+          <select class="d-block bg-white  border-0 border-bottom border-primary text-primary rounded-3 form-level-js mb-3 p-2" name="level" id="level">
+            <option value="24">Easy</option>
+            <option value="30">Medium</option>
+            <option value="42">Hard</option>
+          </select>
+          <button class="form-btn-js bg-primary border-0 p-2 px-3 text-white rounded-3" type="button">Gazz</button>
+        </form>
       </div>
-    </div>      
+      
+      <div class="position-absolute w-100 start-0 top-0 modal-inner-wrap bg-white">
+        <div class="container px-3 bg-secondary">
+          <ul class="row list-unstyled justify-content-between align-items-center pt-3 mt-3">
+            <li class="select-item text-white border-white item-blok rounded-3 p-2 mb-3 mx-auto mx-md-0 col-12 col-md-3">
+              <p class="time-set mb-0">00 : 00</p>
+            </li>
+            <li class="select-item text-white border-white item-blok rounded-3 p-2 mb-3  mx-auto mx-md-0 col-12 col-md-3">
+              <p class="atammps-js mb-0">Attempts : 5</p>
+            </li>
+            <li class="select-item text-white border-white item-blok rounded-3 p-2 mb-3 mx-auto mx-md-0 col-12 col-md-3">
+              <p class="score-js mb-0">Score : 0</p>
+            </li>
+          </ul>
+          <div class="question-text-wrap mb-3">
+            <h2 class="main-title-js text-center text-white"></h2>
+          </div>
+          <ul class="row site-list px-3 list-unstyled justify-content-between mb-5">
+            
+          </ul>
+        </div>
+      </div>      
+    </div>
+  </section>
+  <!-- site hero finish -->
+  
+  <!-- site modal start -->
+  <div class="modal-game-over bg-gradient text-center">
+    <h2 class="text-points my-4 text-white"></h2>
+    <h4 class="text-score text-white text-center mt-4"></h4>
+    <img class="youwin-img rounded-4" src="./images/200w.gif" alt="game over">
+    <div>
+      <button class="reset-btn btn bg-transparent mt-5"></button>
+    </div>
   </div>
-</section>
+  <!-- site modal finish -->
 
-<div class="modal-game-over bg-gradient text-center">
-  <h2 class="text-points my-4 text-white"></h2>
-  <h4 class="text-score text-white text-center mt-4"></h4>
-  <img class="youwin-img rounded-4" src="./images/200w.gif" alt="game over">
-  <div>
-    <button class="reset-btn btn bg-transparent mt-5"></button>
-  </div>
-</div>
-<template class="temp">
-  <li class="item  mt-3 p-4 col-12 col-md-4 col-lg-3 mx-auto mx-md-0 position-relative">
-    <img class="rounded-pill img-checked" src="./images/checkmark.gif" width="35" height="35" alt="win">
-    <img class="rounded-pill img-error" src="./images/error.png" width="35" height="35" alt="error-img">
-  </li>
-</template>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<!-- Kerakli Array shu fileda -->
-<script src="./signs.js"></script>
+  <!-- site template start -->
+  <template class="temp">
+    <li class="item  mt-3 p-4 col-12 col-md-4 col-lg-3 mx-auto mx-md-0 position-relative">
+      <img class="rounded-pill img-checked" src="./images/checkmark.gif" width="40" height="40" alt="win">
+      <img class="rounded-pill img-error" src="./images/error.png" width="40" height="40" alt="error">
+    </li>
+  </template>
+  <!-- site template start -->
 
-<!-- Code yoziladigan js file shu -->
-<script src="./main.js"></script>
+  <!-- bootstraptdagi js fayillar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <!-- Kerakli Array shu fileda -->
+  <script src="./signs.js"></script>
+  
+  <!-- Code yoziladigan js file shu -->
+  <script src="./main.js"></script>
 </body>
 </html>
